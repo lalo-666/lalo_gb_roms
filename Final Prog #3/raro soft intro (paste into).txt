@@ -1,0 +1,9 @@
+int I = 0;
+
+    for(I = 0; I < 31; I++ ){
+    delay(200);
+    printf(" raro~Soft ");
+    }
+       for(I = 0; I < 49; I++ ){
+    printf("\n");
+    }

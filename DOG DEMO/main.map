@@ -1,0 +1,283 @@
+AREA .  .ABS.
+	RADIX HEX
+	BASE 0000
+	SIZE 0000
+	ATTRIB ABS OVR
+	GLOBALS
+		l__HEAP	0000
+		l__BSEG	0000
+		l_.  .ABS.	0000
+		l__GSFINAL	0000
+		l__ISEG	0000
+		s_.  .ABS.	0000
+		s__HEADER	0000
+		l__XSEG	0000
+		.init	0000
+		l__OVERLAY	0000
+		l__LIT	0000
+		s__SFR	0000
+		l__GSINITTAIL	0001
+		l__CODE	0037
+		l__BSS	0059
+		l__BASE	011C
+		l__HOME	01AC
+		l__HEADER	01E1
+		s__CODE	0200
+		s__HOME	0237
+		l__DATA	0308
+		s__BASE	03E3
+		s__LIT	04FF
+		s__GSINIT	04FF
+		l__GSINIT	1230
+		s__GSINITTAIL	172F
+		s__GSFINAL	1730
+		.OAM	C000
+		s__DATA	C0A0
+		s__BSS	C3A8
+		s__HEAP	C401
+		s__BSEG	C401
+		s__ISEG	C401
+		s__XSEG	C401
+		s__OVERLAY	C401
+		.STACK	E000
+		.refresh_OAM	FF80
+		l__SFR	10000
+AREA _CODE
+	RADIX HEX
+	BASE 0200
+	SIZE 0037
+	ATTRIB REL CON
+	GLOBALS
+		_main	0200
+AREA _HEADER
+	RADIX HEX
+	BASE 0000
+	SIZE 01E1
+	ATTRIB ABS OVR
+	GLOBALS
+		_exit	01D2
+AREA _HOME
+	RADIX HEX
+	BASE 0237
+	SIZE 01AC
+	ATTRIB REL CON
+	GLOBALS
+		.set_mode	0237
+		.remove_VBL	0247
+		.remove_LCD	024D
+		.remove_TIM	0253
+		.remove_SIO	0259
+		.remove_JOY	025F
+		.add_VBL	0265
+		.add_LCD	026B
+		.add_TIM	0271
+		.add_SIO	0277
+		.add_JOY	027D
+		.remove_int	0283
+		.add_int	02A3
+		.wait_vbl_done	02BF
+		_wait_vbl_done	02BF
+		_display_off	02D6
+		.display_off	02D6
+		.serial_IO	02F7
+		_mode	0326
+		_get_mode	032F
+		_enable_interrupts	0334
+		_disable_interrupts	0336
+		_reset	0338
+		.reset	0338
+		_set_interrupts	033E
+		_remove_VBL	0349
+		_remove_LCD	0354
+		_remove_TIM	035F
+		_remove_SIO	036A
+		_remove_JOY	0375
+		_add_VBL	0380
+		_add_LCD	038B
+		_add_TIM	0396
+		_add_SIO	03A1
+		_add_JOY	03AC
+		_clock	03B7
+		__printTStates	03C0
+		banked_call	03C1
+		banked_ret	03DA
+AREA _BASE
+	RADIX HEX
+	BASE 03E3
+	SIZE 011C
+	ATTRIB REL CON
+	GLOBALS
+		_set_win_data	03E3
+		_set_bkg_data	03E3
+		_set_sprite_data	0430
+		.copy_vram	045F
+		_get_data	046E
+		_set_data	046E
+		_set_bkg_tiles	0481
+		.set_xy_wtt	0495
+		.set_xy_btt	04A6
+		.set_xy_tt	04B5
+		_set_tiles	04E6
+AREA _LIT
+	RADIX HEX
+	BASE 04FF
+	SIZE 0000
+	ATTRIB REL CON
+AREA _GSINIT
+	RADIX HEX
+	BASE 04FF
+	SIZE 1230
+	ATTRIB REL CON
+	GLOBALS
+		gsinit	04FF
+AREA _GSINITTAIL
+	RADIX HEX
+	BASE 172F
+	SIZE 0001
+	ATTRIB REL CON
+AREA _GSFINAL
+	RADIX HEX
+	BASE 1730
+	SIZE 0000
+	ATTRIB REL CON
+AREA _DATA
+	RADIX HEX
+	BASE C0A0
+	SIZE 0308
+	ATTRIB REL CON
+	GLOBALS
+		_dogtotal	C0A0
+		_dogtiles	C208
+AREA _BSS
+	RADIX HEX
+	BASE C3A8
+	SIZE 0059
+	ATTRIB REL CON
+	GLOBALS
+		__cpu	C3A8
+		.mode	C3A9
+		__io_out	C3AA
+		__io_in	C3AB
+		__io_status	C3AC
+		.vbl_done	C3AD
+		__current_bank	C3AE
+		_sys_time	C3AF
+		.sys_time	C3AF
+		.int_0x40	C3B1
+		.int_0x48	C3C1
+		.int_0x50	C3D1
+		.int_0x58	C3E1
+		.int_0x60	C3F1
+AREA _HEAP
+	RADIX HEX
+	BASE C401
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		_malloc_heap_start	C401
+AREA _OVERLAY
+	RADIX HEX
+	BASE C401
+	SIZE 0000
+	ATTRIB REL CON
+AREA _ISEG
+	RADIX HEX
+	BASE C401
+	SIZE 0000
+	ATTRIB REL CON
+AREA _BSEG
+	RADIX HEX
+	BASE C401
+	SIZE 0000
+	ATTRIB REL CON
+AREA _XSEG
+	RADIX HEX
+	BASE C401
+	SIZE 0000
+	ATTRIB REL CON
+AREA _SFR
+	RADIX HEX
+	BASE 0000
+	SIZE 10000
+	ATTRIB ABS OVR
+	GLOBALS
+		_P1_REG	FF00
+		_SB_REG	FF01
+		_SC_REG	FF02
+		_DIV_REG	FF04
+		_TIMA_REG	FF05
+		_TMA_REG	FF06
+		_TAC_REG	FF07
+		_IF_REG	FF0F
+		_NR10_REG	FF10
+		_NR11_REG	FF11
+		_NR12_REG	FF12
+		_NR13_REG	FF13
+		_NR14_REG	FF14
+		_NR21_REG	FF16
+		_NR22_REG	FF17
+		_NR23_REG	FF18
+		_NR24_REG	FF19
+		_NR30_REG	FF1A
+		_NR31_REG	FF1B
+		_NR32_REG	FF1C
+		_NR33_REG	FF1D
+		_NR34_REG	FF1E
+		_NR41_REG	FF20
+		_NR42_REG	FF21
+		_NR43_REG	FF22
+		_NR44_REG	FF23
+		_NR50_REG	FF24
+		_NR51_REG	FF25
+		_NR52_REG	FF26
+		_LCDC_REG	FF40
+		_STAT_REG	FF41
+		_SCY_REG	FF42
+		_SCX_REG	FF43
+		_LY_REG	FF44
+		_LYC_REG	FF45
+		_DMA_REG	FF46
+		_BGP_REG	FF47
+		_OBP0_REG	FF48
+		_OBP1_REG	FF49
+		_WY_REG	FF4A
+		_WX_REG	FF4B
+		_KEY1_REG	FF4D
+		_VBK_REG	FF4F
+		_HDMA1_REG	FF51
+		_HDMA2_REG	FF52
+		_HDMA3_REG	FF53
+		_HDMA4_REG	FF54
+		_HDMA5_REG	FF55
+		_RP_REG	FF56
+		_BCPS_REG	FF68
+		_BCPD_REG	FF69
+		_OCPS_REG	FF6A
+		_OCPD_REG	FF6B
+		_SVBK_REG	FF70
+		_IE_REG	FFFF
+MODULES
+	FILE c:\gbdk\lib/small/asxxxx/gb/crt0.o
+		NAME Runtime
+	FILE main.o
+		NAME lcc91200
+LIBRARIES
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE sfr.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_data.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE cpy_data.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_bk_t.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_xy_t.o
+USERBASEDEF
+	_CODE=0x0200
+	_DATA=0xC0A0
+	_CODE_1=0x4000
+USERGLOBALDEF
+	.OAM=0xC000
+	.STACK=0xE000
+	.refresh_OAM=0xFF80
+	.init=0x0000
